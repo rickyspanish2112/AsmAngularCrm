@@ -1,7 +1,220 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <header>
-    Welcome to {{ title }}!
-  </header>
+<div class="title"><h1>Account Details</h1></div>
+<div class="row">
+  <div class="col">
+    <div>
+      <label for="shortCode">Short Code:</label>
+      <input type="text" id="shortCode" value="{{account.shortCode}}">
+    </div>
+
+    <div>
+      <label for="externalId">ExternalId:</label>
+      <input type="text" id="externalId" value="{{account.externalId}}">
+    </div>
+
+    <div>
+      <label for="accountName">Account Name:</label>
+      <input type="text" id="accountName" value="{{account.accountName}}">
+    </div>
+
+    <div>
+      <label for="mainTelephone">Main Telephone:</label>
+      <input type="text" id="mainTelephone" value="{{account.mainTelephone}}">
+    </div>
+
+
+    <label for="fax">Fax:</label>
+    <input type="text" id="fax" value="{{account.fax}}">
+
+    <label for="accountType"></label>
+    <div id="accountType">
+      <label for="exportAccount">Export Account</label>
+      <input type="checkbox" id="exportAccount" [checked]="account.exportAccount">
+      <label for="importAccount">Import Account</label>
+      <input type="checkbox" id="importAccount" [checked]="account.importAccount">
+    </div>
+    <div>
+        <label for="countryCode">Country:</label>
+        <input type="text" id="countryCode" value="{{account.countryCode}}" >
+        <input type="text" id="country" value="{{account.country}}">
+    </div>
+
+    <div>
+        <label for="tin">TIN:</label>
+        <input type="text" id="tin" value="{{account.tin}}">
+    </div>
+    <div>
+        <label for="website">Website:</label>
+        <input type="text" id="website" value="{{account.website}}">
+    </div>
+    <div>
+        <label for="createdBy">Created By:</label>
+        <input type="text" id="createdBy" value="{{account.createdBy}}">
+    </div>
+
+    <div class="example-button-row">
+      <button mat-raised-button color="primary">Primary Address</button>
+    </div>
+
+<!--   </div>
+  <div class="col">
+      <div>
+          <label for="accountNumber">Account Number:</label>
+          <input type="text" id="accountNumber" value="{{account.accountNumber}}">
+        </div>
+    <fieldset>
+      <legend>Relationship</legend>
+      <p>
+      <label for ="customer">Customer</label>
+      <input type="checkbox" id="customer" [checked]="account.customer">
+
+      <label for ="supplier">Supplier</label>
+      <input type="checkbox" id="supplier" [checked]="account.supplier">
+      </p>
+
+      <p>
+      <label for ="prospect">Prospect</label>
+      <input type="checkbox" id="prospect" [checked]="account.prospect">
+
+      <label for ="invoicee">Invoicee</label>
+      <input type="checkbox" id="invoicee" [checked]="account.invoicee">
+      </p>
+    </fieldset>
+  </div>
+
+  <div class="col"></div>
+
+</div>
+<div class="row">
+    <div class="col"><button (click)="dlgAddress.showModal()">Primary Address</button></div>
+    <div class="col"><button (click)="dlgContact.showModal()">Primary Contact</button></div>
+</div>
+
+<dialog id="dlgPrimaryAddress" #dlgAddress>
+  <div>
+      <label for="description">Description:</label>
+      <input type="text" id = "description" value="{{account.description}}">
+  </div>
+  <div>
+      <p>
+          <label for ="collection">Collection</label>
+          <input type="checkbox" id="collection"  [checked]="account.collection" >
+
+          <label for ="delivery">Delivery</label>
+          <input type="checkbox" id="delivery"  [checked]="account.delivery">
+
+          <label for ="airWaybill">Air Waybill Print</label>
+          <input type="checkbox" id="airWaybill"  [checked]="account.airwaybill">
+      </p>
+      <p>
+          <label for ="warehouse">Warehouse</label>
+          <input type="checkbox" id="warehouse"  [checked]="account.warehouse">
+
+          <label for ="customer">Customer</label>
+          <input type="checkbox" id="customer"  [checked]="account.customer">
+
+          <label for ="invoice">Invoice</label>
+          <input type="checkbox" id="invoice"  [checked]="account.invoice">
+      </p>
+      <p>
+          <label for ="consignee">Consignee</label>
+          <input type="checkbox" id="consignee"  [checked]="account.consignee">
+
+          <label for ="shipper">Shipper</label>
+          <input type="checkbox" id="shipper"  [checked]="account.shipper">
+
+          <label for ="airlineMessaging">Airline Messaging</label>
+          <input type="checkbox" id="airlineMessaging"  [checked]="account.airlineMessaging">
+      </p>
+      <p>
+          <label for ="oceanDocument">Ocean Document</label>
+          <input type="checkbox" id="oceanDocument"  [checked]="account.oceanDocument">
+
+      </p>
+  </div>
+  <div>
+      <label for="street1">Street 1:</label>
+      <input type="text" id = "street1" value="{{account.street1}}">
+  </div>
+  <div>
+      <label for="street2">Street 2:</label>
+      <input type="text" id = "street2" value="{{account.street2}}">
+  </div>
+  <div>
+      <label for="street3">Street 3:</label>
+      <input type="text" id = "street3" value="{{account.street3}}">
+  </div>
+  <div>
+      <label for="town">Town:</label>
+      <input type="text" id = "town" value="{{account.town}}">
+      <label for="county">County:</label>
+      <input type="text" id = "county" value="{{account.county}}">
+  </div>
+  <div>
+      <label for="postcode">Postcode:</label>
+      <input type="text" id = "postcode" value="{{account.postcode}}">
+      <label for="country">Country:</label>
+      <input type="text" id = "country" value="{{account.country}}">
+  </div>
+
+  <div style="text-align: right;">
+      <button (click)="dlgAddress.close()">OK</button>
+      <button (click)="dlgAddress.close()">Cancel</button>
+  </div>
+</dialog>
+
+<dialog id="dlgPrimaryContact" #dlgContact>
+
+<div>
+  <label for="title">Title:</label>
+  <select id="title">
+      <option>No Title</option>
+      <option>Dr</option>
+      <option>Miss</option>
+      <option>Mr</option>
+      <option>Mrs</option>
+      <option>Ms</option>
+  </select>
+
+  <label for="firstName">First Name:</label>
+  <input type="text" id = "firstName" value="{{account.firstName}}">
+
+  <label for="lastName">Last Name:</label>
+  <input type="text" id = "lastName" value="{{account.lastName}}">
+
+</div>
+<div>
+  <label for="jobTitle">Job Title:</label>
+  <input type="text" id="jobTitle" value="{{account.jobTitle}}">
+</div>
+
+<div>
+    <label for="telephone">Telephone:</label>
+    <input type="text" id = "telephone" value="{{account.telephone}}">
+
+    <label for="mobile">Mobile:</label>
+    <input type="text" id = "mobile" value="{{account.mobile}}">
+
+    <label for="fax">Fax:</label>
+    <input type="text" id = "fax" value="{{account.fax}}">
+
+  </div>
+
+  <div>
+      <label for="email">Email:</label>
+      <input type="text" id="email" value="{{account.email}}">
+  </div>
+
+  <div>
+      <label for="notes">Notes:</label>
+      <textarea  id="notes">{{account.notes}}  </textarea>
+  </div>
+
+  <div style="text-align: right;">
+      <button (click)="dlgContact.close()">OK</button>
+      <button (click)="dlgContact.close()">Cancel</button>
+  </div>
+</dialog>
+ -->
 
 <router-outlet></router-outlet>
