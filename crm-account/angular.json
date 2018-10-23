@@ -79,7 +79,8 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "../node_modules/hammerjs/hammer.min.js"
             ]
           }
         },
